@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'my_routine_screen.dart'; // Utilisation de la même page pour l'instant
+import 'my_routine_screen.dart';
 
 class MyRoutineButton extends StatelessWidget {
   @override
@@ -9,7 +9,7 @@ class MyRoutineButton extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => MyRoutineScreen()), // Change si tu veux une autre page
+            MaterialPageRoute(builder: (context) => MyRoutineScreen()),
           );
         },
         style: ElevatedButton.styleFrom(
