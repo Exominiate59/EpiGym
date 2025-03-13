@@ -7,9 +7,42 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Epigym App")),
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        centerTitle: true, // Centre le contenu
+        title: Row(
+          children: [
+            Image.asset(
+              'assets/images/logo.png',
+              height: 60, // Taille du logo
+            ),
+            const SizedBox(width: 10), // Espace entre le logo et le texte
+            const Text(
+              'Epigym',
+              style: TextStyle(
+                color: Colors.white, // Couleur du texte
+                fontSize: 20, // Taille du texte
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+      ),
       body: Stack(
         children: [
+          // Image en arrière-plan avec transparence
+          Positioned.fill(
+            child: Opacity(
+              opacity: 0.2, // Ajuste la transparence (0.0 = invisible, 1.0 = opaque)
+              child: Center(
+                child: Image.asset(
+                  'assets/images/logo.png',
+                  width: 500, // Ajuste la taille du logo
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ),
+          ),
           createCustomButton(
             context: context,
             x: 100,

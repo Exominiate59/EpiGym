@@ -10,7 +10,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Epigym',
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(), // Active le mode sombre
+      themeMode: ThemeMode.dark, // Forcer le mode sombre
       home: HomeScreen(),
     );
   }
