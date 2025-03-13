@@ -29,7 +29,7 @@ class HomeScreen extends StatelessWidget {
             context: context,
             x: 100,
             y: 400,
-            width: 200,w
+            width: 200,
             height: 60,
             text: "My Routine",
             color: Colors.green,
