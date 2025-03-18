@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'custom_button.dart';
 import 'new_session_screen.dart';
 import 'my_routine_screen.dart';
+import 'muscle_selection_screen.dart'; // Importation de la nouvelle page
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -9,19 +10,19 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        centerTitle: true, // Centre le contenu
+        centerTitle: true,
         title: Row(
           children: [
             Image.asset(
               'assets/images/logo.png',
-              height: 60, // Taille du logo
+              height: 60,
             ),
-            const SizedBox(width: 10), // Espace entre le logo et le texte
+            const SizedBox(width: 10),
             const Text(
               'Epigym',
               style: TextStyle(
-                color: Colors.white, // Couleur du texte
-                fontSize: 20, // Taille du texte
+                color: Colors.white,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -30,14 +31,13 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          // Image en arrière-plan avec transparence
           Positioned.fill(
             child: Opacity(
-              opacity: 0.2, // Ajuste la transparence (0.0 = invisible, 1.0 = opaque)
+              opacity: 0.2,
               child: Center(
                 child: Image.asset(
                   'assets/images/logo.png',
-                  width: 500, // Ajuste la taille du logo
+                  width: 500,
                   fit: BoxFit.contain,
                 ),
               ),
@@ -61,7 +61,7 @@ class HomeScreen extends StatelessWidget {
           createCustomButton(
             context: context,
             x: 100,
-            y: 400,
+            y: 300,
             width: 200,
             height: 60,
             text: "My Routine",
@@ -74,24 +74,24 @@ class HomeScreen extends StatelessWidget {
             },
           ),
           createCustomButton(
-          context: context,
-          x: 100,
-          y: 500,
-          width: 200,
-          height: 60,
-          text: "Pre-made Sessions",
-          color: Colors.blue,
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => NewSessionScreen()),
-            );
-          },
-        ),
+            context: context,
+            x: 100,
+            y: 500,
+            width: 200,
+            height: 60,
+            text: "Pre-made Sessions",
+            color: Colors.blue,
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => NewSessionScreen()),
+              );
+            },
+          ),
           createCustomButton(
             context: context,
             x: 100,
-            y: 300,
+            y: 400,
             width: 200,
             height: 60,
             text: "Exercice",
@@ -99,7 +99,7 @@ class HomeScreen extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => MyRoutineScreen()),
+                MaterialPageRoute(builder: (context) => MuscleSelectionScreen()), // Nouvelle page
               );
             },
           ),
