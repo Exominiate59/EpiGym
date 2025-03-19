@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'muscle_detail_screen.dart'; // Import de la nouvelle page
+import 'muscle_detail_screen.dart'; // Import de la page des détails
 
 class MuscleSelectionScreen extends StatefulWidget {
   @override
@@ -7,57 +7,94 @@ class MuscleSelectionScreen extends StatefulWidget {
 }
 
 class _MuscleSelectionScreenState extends State<MuscleSelectionScreen> {
-  final List<String> muscles = [
-    "Pectoraux",
-    "Biceps",
-    "Triceps",
-    "Épaules",
-    "Dos",
-    "Jambes",
-    "Abdominaux",
-  ];
-
-  String? selectedMuscle; // Stocke le muscle sélectionné
+  // Association des muscles à leurs images
+  final Map<String, String> muscleImages = {
+    "Pectoraux": "assets/images/developpe_couche.png",
+    "Biceps": "assets/images/curl_biceps.png",
+    "Triceps": "assets/images/dips_triceps.png",
+    "Épaules": "assets/images/developpe_militaire.png",
+    "Dos": "assets/images/traction.png",
+    "Jambes": "assets/images/squat.png",
+    "Abdominaux": "assets/images/crunch.png",
+  };
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Exercice")),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               "Quel muscle souhaites-tu travailler ?",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 20),
 
-            /// 🔽 **Dropdown pour sélectionner un muscle**
-            DropdownButton<String>(
-              hint: Text("Sélectionne un muscle"),
-              value: selectedMuscle,
-              onChanged: (String? newValue) {
-                setState(() {
-                  selectedMuscle = newValue;
-                });
+            /// Affichage des muscles sous forme de boutons ronds
+            Expanded(
+              child: GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3, // 3 images par ligne
+                  crossAxisSpacing: 12,
+                  mainAxisSpacing: 12,
+                ),
+                itemCount: muscleImages.keys.length,
+                itemBuilder: (context, index) {
+                  String muscle = muscleImages.keys.elementAt(index);
+                  String imagePath = muscleImages[muscle] ?? "";
 
-                // Ouvrir la page spécifique du muscle après sélection
-                if (newValue != null) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => MuscleDetailScreen(muscleName: newValue),
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MuscleDetailScreen(
+                            muscleName: muscle,
+                            imagePath: imagePath,
+                          ),
+                        ),
+                      );
+                    },
+                    child: Column(
+                      children: [
+                        /// Image arrondie et effet bouton
+                        ClipOval(
+                          child: Material(
+                            color: Colors.transparent,
+                            child: Ink.image(
+                              image: AssetImage(imagePath),
+                              width: 80, // Taille de l’image
+                              height: 80,
+                              fit: BoxFit.cover,
+                              child: InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => MuscleDetailScreen(
+                                        muscleName: muscle,
+                                        imagePath: imagePath,
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 8),
+                        Text(
+                          muscle,
+                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                        ),
+                      ],
                     ),
                   );
-                }
-              },
-              items: muscles.map((String muscle) {
-                return DropdownMenuItem<String>(
-                  value: muscle,
-                  child: Text(muscle),
-                );
-              }).toList(),
+                },
+              ),
             ),
           ],
         ),
