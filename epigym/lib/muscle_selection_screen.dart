@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'muscle_detail_screen.dart'; // Import de la page des détails
+import 'muscle_detail_screen.dart';
 
 class MuscleSelectionScreen extends StatefulWidget {
   @override
@@ -7,7 +7,6 @@ class MuscleSelectionScreen extends StatefulWidget {
 }
 
 class _MuscleSelectionScreenState extends State<MuscleSelectionScreen> {
-  // Association des muscles à leurs images
   final Map<String, String> muscleImages = {
     "Pectoraux": "assets/images/developpe_couche.png",
     "Biceps": "assets/images/curl_biceps.png",
@@ -18,85 +17,66 @@ class _MuscleSelectionScreenState extends State<MuscleSelectionScreen> {
     "Abdominaux": "assets/images/crunch.png",
   };
 
+  final Map<String, List<String>> muscleExercises = {
+    "Pectoraux": ["Développé couché", "Pompes", "Écarté couché", "Dips", "Pec Deck"],
+    "Biceps": ["Curl haltères", "Curl marteau", "Tractions supination", "Curl poulie"],
+    "Triceps": ["Dips", "Extensions poulie", "Kickback", "Pompes diamant"],
+    "Épaules": ["Développé militaire", "Élévations latérales", "Oiseau", "Arnold Press"],
+    "Dos": ["Tractions", "Rowing barre", "Rowing haltères", "Tirage vertical"],
+    "Jambes": ["Squat", "Presse à jambes", "Fentes", "Leg curl"],
+    "Abdominaux": ["Crunch", "Planche", "Relevé de jambes", "Russian Twist"],
+  };
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Exercice")),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Quel muscle souhaites-tu travailler ?",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 20),
+        child: GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3,
+            crossAxisSpacing: 12,
+            mainAxisSpacing: 12,
+          ),
+          itemCount: muscleImages.keys.length,
+          itemBuilder: (context, index) {
+            String muscle = muscleImages.keys.elementAt(index);
+            String imagePath = muscleImages[muscle] ?? "";
+            List<String> exercises = muscleExercises[muscle] ?? [];
 
-            /// Affichage des muscles sous forme de boutons ronds
-            Expanded(
-              child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3, // 3 images par ligne
-                  crossAxisSpacing: 12,
-                  mainAxisSpacing: 12,
-                ),
-                itemCount: muscleImages.keys.length,
-                itemBuilder: (context, index) {
-                  String muscle = muscleImages.keys.elementAt(index);
-                  String imagePath = muscleImages[muscle] ?? "";
-
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => MuscleDetailScreen(
-                            muscleName: muscle,
-                            imagePath: imagePath,
-                          ),
-                        ),
-                      );
-                    },
-                    child: Column(
-                      children: [
-                        /// Image arrondie et effet bouton
-                        ClipOval(
-                          child: Material(
-                            color: Colors.transparent,
-                            child: Ink.image(
-                              image: AssetImage(imagePath),
-                              width: 80, // Taille de l’image
-                              height: 80,
-                              fit: BoxFit.cover,
-                              child: InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => MuscleDetailScreen(
-                                        muscleName: muscle,
-                                        imagePath: imagePath,
-                                      ),
-                                    ),
-                                  );
-                                },
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          muscle,
-                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-                        ),
-                      ],
+            return GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MuscleDetailScreen(
+                      muscleName: muscle,
+                      imagePath: imagePath,
+                      exercises: exercises,
                     ),
-                  );
-                },
+                  ),
+                );
+              },
+              child: Column(
+                children: [
+                  ClipOval(
+                    child: Material(
+                      color: Colors.transparent,
+                      child: Ink.image(
+                        image: AssetImage(imagePath),
+                        width: 80,
+                        height: 80,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  Text(muscle, style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+                ],
               ),
-            ),
-          ],
+            );
+          },
         ),
       ),
     );
