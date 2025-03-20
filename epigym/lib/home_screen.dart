@@ -4,10 +4,18 @@ import 'new_session_screen.dart';
 import 'my_routine_screen.dart';
 import 'muscle_selection_screen.dart'; // Importation de la nouvelle page
 
+/// Écran principal de l'application **Epigym**.
+///
+/// Cet écran permet d'accéder aux différentes fonctionnalités :
+/// - Démarrer une nouvelle session.
+/// - Voir sa routine d'entraînement.
+/// - Accéder aux sessions pré-construites.
+/// - Sélectionner des exercices.
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      /// Barre d'application avec le logo et le titre.
       appBar: AppBar(
         backgroundColor: Colors.black,
         centerTitle: true,
@@ -29,8 +37,11 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
+
+      /// Contenu principal de l'écran.
       body: Stack(
         children: [
+          /// Logo en arrière-plan avec opacité réduite.
           Positioned.fill(
             child: Opacity(
               opacity: 0.2,
@@ -43,6 +54,8 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
+
+          /// Bouton pour démarrer une **nouvelle session**.
           createCustomButton(
             context: context,
             x: 100,
@@ -58,6 +71,8 @@ class HomeScreen extends StatelessWidget {
               );
             },
           ),
+
+          /// Bouton pour afficher **la routine de l'utilisateur**.
           createCustomButton(
             context: context,
             x: 100,
@@ -73,6 +88,8 @@ class HomeScreen extends StatelessWidget {
               );
             },
           ),
+
+          /// Bouton pour accéder aux **sessions pré-faites**.
           createCustomButton(
             context: context,
             x: 100,
@@ -88,6 +105,8 @@ class HomeScreen extends StatelessWidget {
               );
             },
           ),
+
+          /// Bouton pour accéder aux **exercices** via la sélection des muscles.
           createCustomButton(
             context: context,
             x: 100,
