@@ -13,7 +13,7 @@ class MuscleSelectionScreen extends StatefulWidget {
 class _MuscleSelectionScreenState extends State<MuscleSelectionScreen> {
   /// Mapping des groupes musculaires avec leurs images respectives.
   final Map<String, String> muscleImages = {
-    "Pectoraux": "assets/images/developpe_couche.png",
+    "Pectoraux": "assets/images/pectoraux.png",
     "Biceps": "assets/images/curl_biceps.png",
     "Triceps": "assets/images/dips_triceps.png",
     "Épaules": "assets/images/developpe_militaire.png",
@@ -24,7 +24,7 @@ class _MuscleSelectionScreenState extends State<MuscleSelectionScreen> {
 
   /// Liste des exercices associés à chaque muscle.
   final Map<String, List<String>> muscleExercises = {
-    "Pectoraux": ["Développé couché", "Pompes", "Écarté couché", "Dips", "Pec Deck"],
+    "Pectoraux": ["Développé couché", "Pompes", "Écarté couché haltère", "Dips", "Pec Deck"],
     "Biceps": ["Curl haltères", "Curl marteau", "Tractions supination", "Curl poulie"],
     "Triceps": ["Dips", "Extensions poulie", "Kickback", "Pompes diamant"],
     "Épaules": ["Développé militaire", "Élévations latérales", "Oiseau", "Arnold Press"],

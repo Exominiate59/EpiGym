@@ -3,11 +3,11 @@ import 'exercise_detail_screen.dart';
 
 /// Liste des images associées aux exercices.
 final Map<String, String> exerciseImages = {
-  "Développé couché": "assets/images/developpe_couche.png",
-  "Pompes": "assets/exercises/pompes.png",
-  "Écarté couché": "assets/exercises/ecarte_couche.png",
-  "Dips": "assets/exercises/dips.png",
-  "Pec Deck": "assets/exercises/pec_deck.png",
+  "Développé couché": "assets/exercises/Pectoraux/developpe_couche.png",
+  "Pompes": "assets/exercises/Pectoraux/pompes.png",
+  "Écarté couché haltère": "assets/exercises/Pectoraux/ecarte_couche_haltere.png",
+  "Dips": "assets/exercises/Pectoraux/dips.png",
+  "Pec Deck": "assets/exercises/Pectoraux/pec_deck.png",
   "Curl haltères": "assets/exercises/curl_haltere.png",
   "Curl marteau": "assets/exercises/curl_marteau.png",
   "Tractions supination": "assets/exercises/traction_supination.png",
