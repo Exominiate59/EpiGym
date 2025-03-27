@@ -30,9 +30,21 @@ flutter:
 
   assets:
     - assets/images/logo.png
-    - assets/exercises/Pectoraux/developpe_couche.png
+    - assets/images/pectoraux.png
+    - assets/exercises/Pectoraux/developpe_couche_smith.png
     - assets/exercises/Pectoraux/pompes.png
     - assets/exercises/Pectoraux/ecarte_couche_haltere.png
     - assets/exercises/Pectoraux/dips.png
     - assets/exercises/Pectoraux/pec_deck.png
-    - assets/images/pectoraux.png
+    - assets/images/biceps.png
+    - assets/exercises/biceps/curl_haltere.png
+    - assets/exercises/biceps/curl_marteau.png
+    - assets/exercises/biceps/curl_barre.png
+    - assets/exercises/biceps/curl_poulie.png
+    - assets/images/triceps.png
+    - assets/exercises/triceps/extension_triceps_corde.png
+    - assets/exercises/triceps/skull_crushers.png
+    - assets/exercises/triceps/triceps_dips.png
+    - assets/images/shoulders.png
+    - assets/exercises/shoulders/seated_overhead_press.png
+    - assets/exercises/shoulders/lateral_raise_dumbell.png

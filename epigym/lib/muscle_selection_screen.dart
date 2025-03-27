@@ -14,9 +14,9 @@ class _MuscleSelectionScreenState extends State<MuscleSelectionScreen> {
   /// Mapping des groupes musculaires avec leurs images respectives.
   final Map<String, String> muscleImages = {
     "Pectoraux": "assets/images/pectoraux.png",
-    "Biceps": "assets/images/curl_biceps.png",
-    "Triceps": "assets/images/dips_triceps.png",
-    "Épaules": "assets/images/developpe_militaire.png",
+    "Biceps": "assets/images/biceps.png",
+    "Triceps": "assets/images/triceps.png",
+    "Shoulders": "assets/images/shoulders.png",
     "Dos": "assets/images/traction.png",
     "Jambes": "assets/images/squat.png",
     "Abdominaux": "assets/images/crunch.png",
@@ -24,10 +24,10 @@ class _MuscleSelectionScreenState extends State<MuscleSelectionScreen> {
 
   /// Liste des exercices associés à chaque muscle.
   final Map<String, List<String>> muscleExercises = {
-    "Pectoraux": ["Développé couché", "Pompes", "Écarté couché haltère", "Dips", "Pec Deck"],
-    "Biceps": ["Curl haltères", "Curl marteau", "Tractions supination", "Curl poulie"],
-    "Triceps": ["Dips", "Extensions poulie", "Kickback", "Pompes diamant"],
-    "Épaules": ["Développé militaire", "Élévations latérales", "Oiseau", "Arnold Press"],
+    "Pectoraux": ["Bench Press (Smith)", "Push up", "Chest fly (Dumbbell)", "Chest Dips", "Chest Fly (Machine)"],
+    "Biceps": ["Biceps Curl (Dumbbell)", "Harmmer Curl", "Biceps Curl (Barbell)", "Biceps Curl (Cable)"],
+    "Triceps": ["Triceps Dips", "Extensions poulie corde", "Skull crushers (Barbell)", "JM Press (Smith)"],
+    "Shoulders": ["Seated Overhead Press (Dumbbel)", "Lateral Raise (Dumbell)", "Oiseau", "Arnold Press"],
     "Dos": ["Tractions", "Rowing barre", "Rowing haltères", "Tirage vertical"],
     "Jambes": ["Squat", "Presse à jambes", "Fentes", "Leg curl"],
     "Abdominaux": ["Crunch", "Planche", "Relevé de jambes", "Russian Twist"],
