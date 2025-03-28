@@ -3,7 +3,7 @@ import 'exercise_detail_screen.dart';
 
 /// Liste des images associées aux exercices.
 final Map<String, String> exerciseImages = {
-  "Bench Press (Smith)": "assets/exercises/Pectoraux/developpe_couche_smith.png",
+  "Bench Press (Smith)": "assets/exercises/Pectoraux/developpé_couche.png",
   "Push up": "assets/exercises/Pectoraux/pompes.png",
   "Chest fly (Dumbbell)": "assets/exercises/Pectoraux/ecarte_couche_haltere.png",
   "Chest Dips": "assets/exercises/Pectoraux/dips.png",
@@ -18,6 +18,12 @@ final Map<String, String> exerciseImages = {
   "JM Press (Smith)": "assets/exercises/triceps/jm_press.png",
   "Seated Overhead Press (Dumbbel)": "assets/exercises/shoulders/seated_overhead_press.png",
   "Lateral Raise (Dumbell)": "assets/exercises/shoulders/lateral_raise_dumbell.png",
+  "Lateral Raise (Cable)": "assets/exercises/shoulders/lateral_raise_cable.png",
+  "Face Pull (Cable)" : "assets/exercises/shoulders/face_pull_cable.png",
+  "Rowing (Machine)": "assets/exercises/Trapezius/rowing_machine.png",
+  "Rowing (Barbell)": "assets/exercises/Trapezius/rowing_barre.png",
+  "T Bar Row Chest Supported": "assets/exercises/Trapezius/t_bar_row_supported.png",
+  "Shrug (Dumbbel)": "assets/exercises/Trapezius/shrug_haltere.png",
   "Squat": "assets/exercises/squat.png",
   "Fentes": "assets/exercises/fentes.png",
 };

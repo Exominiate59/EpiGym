@@ -48,3 +48,10 @@ flutter:
     - assets/images/shoulders.png
     - assets/exercises/shoulders/seated_overhead_press.png
     - assets/exercises/shoulders/lateral_raise_dumbell.png
+    - assets/exercises/shoulders/lateral_raise_cable.png
+    - assets/exercises/shoulders/face_pull_cable.png
+    - assets/images/trapezius.png
+    - assets/exercises/Trapezius/rowing_barre.png
+    - assets/exercises/Trapezius/rowing_machine.png
+    - assets/exercises/Trapezius/shrug_haltere.png
+    - assets/exercises/Trapezius/t_bar_row_supported.png

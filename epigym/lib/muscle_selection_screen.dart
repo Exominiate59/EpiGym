@@ -17,7 +17,7 @@ class _MuscleSelectionScreenState extends State<MuscleSelectionScreen> {
     "Biceps": "assets/images/biceps.png",
     "Triceps": "assets/images/triceps.png",
     "Shoulders": "assets/images/shoulders.png",
-    "Dos": "assets/images/traction.png",
+    "Trapezius": "assets/images/trapezius.png",
     "Jambes": "assets/images/squat.png",
     "Abdominaux": "assets/images/crunch.png",
   };
@@ -27,8 +27,8 @@ class _MuscleSelectionScreenState extends State<MuscleSelectionScreen> {
     "Pectoraux": ["Bench Press (Smith)", "Push up", "Chest fly (Dumbbell)", "Chest Dips", "Chest Fly (Machine)"],
     "Biceps": ["Biceps Curl (Dumbbell)", "Harmmer Curl", "Biceps Curl (Barbell)", "Biceps Curl (Cable)"],
     "Triceps": ["Triceps Dips", "Extensions poulie corde", "Skull crushers (Barbell)", "JM Press (Smith)"],
-    "Shoulders": ["Seated Overhead Press (Dumbbel)", "Lateral Raise (Dumbell)", "Oiseau", "Arnold Press"],
-    "Dos": ["Tractions", "Rowing barre", "Rowing haltères", "Tirage vertical"],
+    "Shoulders": ["Seated Overhead Press (Dumbbel)", "Lateral Raise (Dumbell)", "Lateral Raise (Cable)", "Face Pull (Cable)"],
+    "Trapezius": ["Rowing (Machine)", "Rowing (Barbell)", "T Bar Row Chest Supported", "Shrug (Dumbbel)"],
     "Jambes": ["Squat", "Presse à jambes", "Fentes", "Leg curl"],
     "Abdominaux": ["Crunch", "Planche", "Relevé de jambes", "Russian Twist"],
   };
