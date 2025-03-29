@@ -27,7 +27,7 @@ class _MuscleSelectionScreenState extends State<MuscleSelectionScreen> {
 
   /// Liste des exercices associés à chaque muscle.
   final Map<String, List<String>> muscleExercises = {
-    "Pectoraux": ["Bench Press (Smith)", "Push up", "Chest fly (Dumbbell)", "Chest Dips", "Chest Fly (Machine)"],
+    "Pectoraux": ["Bench Press (Barbell)", "Push up", "Chest fly (Dumbbell)", "Chest Dips", "Chest Fly (Machine)"],
     "Biceps": ["Biceps Curl (Dumbbell)", "Harmmer Curl", "Biceps Curl (Barbell)", "Biceps Curl (Cable)"],
     "Triceps": ["Triceps Dips", "Extensions poulie corde", "Skull crushers (Barbell)", "JM Press (Smith)"],
     "Shoulders": ["Seated Overhead Press (Dumbbel)", "Lateral Raise (Dumbell)", "Lateral Raise (Cable)", "Face Pull (Cable)"],

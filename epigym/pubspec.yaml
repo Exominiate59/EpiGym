@@ -31,7 +31,7 @@ flutter:
   assets:
     - assets/images/logo.png
     - assets/images/pectoraux.png
-    - assets/exercises/Pectoraux/developpe_couche_smith.png
+    - assets/exercises/Pectoraux/developpe_couche.png
     - assets/exercises/Pectoraux/pompes.png
     - assets/exercises/Pectoraux/ecarte_couche_haltere.png
     - assets/exercises/Pectoraux/dips.png

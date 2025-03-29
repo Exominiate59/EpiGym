@@ -3,7 +3,7 @@ import 'exercise_detail_screen.dart';
 
 /// Liste des images associées aux exercices.
 final Map<String, String> exerciseImages = {
-  "Bench Press (Smith)": "assets/exercises/Pectoraux/developpé_couche.png",
+  "Bench Press (Barbell)": "assets/exercises/Pectoraux/developpe_couche.png",
   "Push up": "assets/exercises/Pectoraux/pompes.png",
   "Chest fly (Dumbbell)": "assets/exercises/Pectoraux/ecarte_couche_haltere.png",
   "Chest Dips": "assets/exercises/Pectoraux/dips.png",

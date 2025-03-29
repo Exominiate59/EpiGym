@@ -1,24 +1,11 @@
 import 'package:flutter/material.dart';
+import 'exercise_detail_screen.dart'; // ✅ Import du fichier de détails
 
-/// Écran affichant une liste d'exercices pour un muscle spécifique.
-///
-/// Actuellement, cette liste est **spécifique aux pectoraux**.
-/// Elle affiche les exercices sous forme de `ListTile` avec une image, un titre et une catégorie.
 class ExerciseListScreen extends StatelessWidget {
-  /// Nom du muscle sélectionné.
   final String muscleName;
 
-  /// Crée un écran affichant les exercices pour le muscle donné.
-  ///
-  /// @param muscleName Le nom du muscle sélectionné.
   ExerciseListScreen({required this.muscleName});
 
-  /// Liste des exercices **uniquement pour les pectoraux**.
-  ///
-  /// Chaque exercice est un `Map` contenant :
-  /// - `"name"` : Le nom de l'exercice.
-  /// - `"category"` : La catégorie de l'exercice.
-  /// - `"image"` : Le chemin vers l'image associée.
   final List<Map<String, String>> chestExercises = [
     {
       "name": "Incline Chest Press",
@@ -40,22 +27,17 @@ class ExerciseListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /// Barre d'application affichant le nom du muscle sélectionné.
       appBar: AppBar(title: Text(muscleName)),
-
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            /// Titre de la section
             Text(
               "Exercices pour les Pectoraux",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 20),
-
-            /// Liste verticale des exercices
             Expanded(
               child: ListView.builder(
                 itemCount: chestExercises.length,
@@ -64,7 +46,15 @@ class ExerciseListScreen extends StatelessWidget {
 
                   return GestureDetector(
                     onTap: () {
-                      // Action lorsqu'on clique sur un exercice (ex: ouvrir un détail)
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ExerciseDetailScreen(
+                            exerciseName: exercise["name"] ?? "",
+                            imagePath: exercise["image"] ?? "",
+                          ),
+                        ),
+                      );
                     },
                     child: Card(
                       elevation: 3,
@@ -74,8 +64,6 @@ class ExerciseListScreen extends StatelessWidget {
                       ),
                       child: ListTile(
                         contentPadding: EdgeInsets.all(12),
-
-                        /// Image ronde à gauche
                         leading: ClipOval(
                           child: Image.asset(
                             exercise["image"] ?? "",
@@ -84,8 +72,6 @@ class ExerciseListScreen extends StatelessWidget {
                             fit: BoxFit.cover,
                           ),
                         ),
-
-                        /// Nom de l'exercice
                         title: Text(
                           exercise["name"] ?? "",
                           style: TextStyle(
@@ -93,14 +79,10 @@ class ExerciseListScreen extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-
-                        /// Catégorie de l'exercice
                         subtitle: Text(
                           exercise["category"] ?? "",
                           style: TextStyle(color: Colors.grey),
                         ),
-
-                        /// Icône cliquable à droite
                         trailing: Icon(Icons.arrow_forward_ios, size: 16),
                       ),
                     ),

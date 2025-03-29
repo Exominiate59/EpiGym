@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'exercise_descriptions.dart';
 
 class ExerciseDetailScreen extends StatelessWidget {
   final String exerciseName;
@@ -12,22 +13,31 @@ class ExerciseDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final String description = exerciseDescriptions[exerciseName] ??
+        "Description non disponible pour cet exercice.";
+
     return Scaffold(
       appBar: AppBar(title: Text(exerciseName)),
-      body: Padding(
+      body: SingleChildScrollView( // ✅ scroll activé ici
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(child: Image.asset(imagePath, width: 200, height: 200)),
-            SizedBox(height: 20),
+            Center(
+              child: Image.asset(
+                imagePath,
+                width: 200,
+                height: 200,
+              ),
+            ),
+            const SizedBox(height: 20),
             Text(
               "Description de l'exercice :",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
-              "Cet exercice cible principalement les muscles du ${exerciseName.contains('Squat') ? 'bas du corps' : 'haut du corps'}. Assurez-vous de bien maîtriser la technique avant d'augmenter la charge.",
+              description,
               style: TextStyle(fontSize: 16),
             ),
           ],
