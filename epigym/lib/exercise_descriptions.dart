@@ -8,6 +8,7 @@ final Map<String, String> exerciseDescriptions = {
 
 - Allonge-toi sur le banc, les yeux juste sous la barre.
 - Pose bien les pieds au sol, à plat, pour rester stable.
+- Resserre les omoplates et garde le dos légèrement cambré.
 - Prends la barre un peu plus large que les épaules.
 - Sors la barre du rack, bras tendus au-dessus de la poitrine.
 - Descends lentement la barre jusqu’au bas des pectoraux (ligne des tétons).

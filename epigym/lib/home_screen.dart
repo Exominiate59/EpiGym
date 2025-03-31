@@ -2,20 +2,21 @@ import 'package:flutter/material.dart';
 import 'custom_button.dart';
 import 'new_session_screen.dart';
 import 'my_routine_screen.dart';
-import 'muscle_selection_screen.dart'; // Importation de la nouvelle page
+import 'muscle_selection_screen.dart';
+import 'calorie_input_screen.dart'; // ⬅️ Import de l’écran Calorie
 
-/// Écran principal de l'application **Epigym**.
-///
-/// Cet écran permet d'accéder aux différentes fonctionnalités :
-/// - Démarrer une nouvelle session.
-/// - Voir sa routine d'entraînement.
-/// - Accéder aux sessions pré-construites.
-/// - Sélectionner des exercices.
+/// Écran principal de l'application Epigym.
+/// Permet d'accéder aux différentes fonctionnalités :
+/// - Nouvelle session
+/// - Routine
+/// - Sessions pré-construites
+/// - Sélection d'exercices
+/// - Calcul des calories
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /// Barre d'application avec le logo et le titre.
+      // Barre du haut avec logo
       appBar: AppBar(
         backgroundColor: Colors.black,
         centerTitle: true,
@@ -38,10 +39,10 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
 
-      /// Contenu principal de l'écran.
+      // Contenu principal
       body: Stack(
         children: [
-          /// Logo en arrière-plan avec opacité réduite.
+          // Arrière-plan logo flouté
           Positioned.fill(
             child: Opacity(
               opacity: 0.2,
@@ -55,7 +56,7 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
 
-          /// Bouton pour démarrer une **nouvelle session**.
+          // Bouton : Nouvelle session
           createCustomButton(
             context: context,
             x: 100,
@@ -72,11 +73,11 @@ class HomeScreen extends StatelessWidget {
             },
           ),
 
-          /// Bouton pour afficher **la routine de l'utilisateur**.
+          // Bouton : Routine
           createCustomButton(
             context: context,
             x: 100,
-            y: 300,
+            y: 200,
             width: 200,
             height: 60,
             text: "My Routine",
@@ -89,11 +90,28 @@ class HomeScreen extends StatelessWidget {
             },
           ),
 
-          /// Bouton pour accéder aux **sessions pré-faites**.
+          // Bouton : Exercices par muscle
           createCustomButton(
             context: context,
             x: 100,
-            y: 500,
+            y: 300,
+            width: 200,
+            height: 60,
+            text: "Exercice",
+            color: Colors.pink,
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MuscleSelectionScreen()),
+              );
+            },
+          ),
+
+          // Bouton : Sessions pré-construites
+          createCustomButton(
+            context: context,
+            x: 100,
+            y: 400,
             width: 200,
             height: 60,
             text: "Pre-made Sessions",
@@ -106,19 +124,19 @@ class HomeScreen extends StatelessWidget {
             },
           ),
 
-          /// Bouton pour accéder aux **exercices** via la sélection des muscles.
+          // Bouton : Calorie
           createCustomButton(
             context: context,
             x: 100,
-            y: 400,
+            y: 500,
             width: 200,
             height: 60,
-            text: "Exercice",
-            color: Colors.green,
+            text: "Calorie",
+            color: Colors.yellow,
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => MuscleSelectionScreen()), // Nouvelle page
+                MaterialPageRoute(builder: (context) => CalorieInputScreen()),
               );
             },
           ),
