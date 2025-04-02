@@ -13,7 +13,7 @@ class MuscleSelectionScreen extends StatefulWidget {
 class _MuscleSelectionScreenState extends State<MuscleSelectionScreen> {
   /// Mapping des groupes musculaires avec leurs images respectives.
   final Map<String, String> muscleImages = {
-    "Pectoraux": "assets/images/pectoraux.png",
+    "Pectoraux": "assets/images/pec.png",
     "Biceps": "assets/images/biceps.png",
     "Triceps": "assets/images/triceps.png",
     "Shoulders": "assets/images/shoulders.png",
@@ -47,7 +47,7 @@ class _MuscleSelectionScreenState extends State<MuscleSelectionScreen> {
         padding: const EdgeInsets.all(16.0),
         child: GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3, // 3 colonnes
+            crossAxisCount: 3,
             crossAxisSpacing: 12,
             mainAxisSpacing: 12,
           ),
@@ -59,49 +59,35 @@ class _MuscleSelectionScreenState extends State<MuscleSelectionScreen> {
 
             return GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => MuscleDetailScreen(
-                      muscleName: muscle,
-                      imagePath: imagePath,
-                      exercises: exercises,
+                if (muscle == "Pectoraux") {
+                  Navigator.pushNamed(context, '/pectorauxDetails');
+                } else {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MuscleDetailScreen(
+                        muscleName: muscle,
+                        imagePath: imagePath,
+                        exercises: exercises,
+                      ),
                     ),
-                  ),
-                );
+                  );
+                }
               },
               child: Column(
                 children: [
-                  /// Effet visuel avec `InkWell` pour un meilleur retour utilisateur.
                   ClipOval(
                     child: Material(
                       color: Colors.transparent,
-                      child: InkWell(
-                        splashColor: Colors.grey.withOpacity(0.3), // Effet de clic
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => MuscleDetailScreen(
-                                muscleName: muscle,
-                                imagePath: imagePath,
-                                exercises: exercises,
-                              ),
-                            ),
-                          );
-                        },
-                        child: Ink.image(
-                          image: AssetImage(imagePath),
-                          width: 80,
-                          height: 80,
-                          fit: BoxFit.cover,
-                        ),
+                      child: Ink.image(
+                        image: AssetImage(imagePath),
+                        width: 80,
+                        height: 80,
+                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
                   const SizedBox(height: 8),
-
-                  /// Nom du muscle affiché sous l'image.
                   Text(
                     muscle,
                     style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),

@@ -23,18 +23,4 @@ final Map<String, List<Map<String, String>>> exercisesBySubzone = {
       "image": "assets/images/decline_bench.png"
     },
   ],
-  'Intérieur des pectoraux': [
-    {
-      "name": "Cable Crossover",
-      "category": "Intérieur des pecs",
-      "image": "assets/images/cable_crossover.png"
-    },
-  ],
-  'Extérieur des pectoraux': [
-    {
-      "name": "Wide Push-ups",
-      "category": "Extérieur des pecs",
-      "image": "assets/images/wide_pushups.png"
-    },
-  ],
 };

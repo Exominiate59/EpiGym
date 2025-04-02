@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import '../exercise_list_screen.dart'; // adapte le chemin si besoin
+import '../../exercice_list_screen.dart';
 
 class PectorauxDetailScreen extends StatelessWidget {
   final Map<String, String> pectorauxZones = {
-    'Haut des pectoraux': 'assets/images/pec_haut.png',
-    'Bas des pectoraux': 'assets/images/pec_bas.png',
-    'Intérieur des pectoraux': 'assets/images/pec_interieur.png',
-    'Extérieur des pectoraux': 'assets/images/pec_exterieur.png',
+    'Tout': 'assets/anatomie/pec/tout_pec.png',
+    'Haut des pecs': 'assets/anatomie/pec/haut_pec.png',
+    'Milieu des pecs': 'assets/anatomie/pec/milieu_pec.png',
+    'Bas des pecs': 'assets/anatomie/pec/bas_pec.png',
   };
 
   @override

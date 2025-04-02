@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
+import 'screens/muscle_detail/pectoraux_details_screen.dart'; // ✅ Import corrigé
 
 /// Point d'entrée de l'application **Epigym**.
 void main() {
@@ -28,6 +29,11 @@ class MyApp extends StatelessWidget {
 
       /// Premier écran affiché : `HomeScreen`.
       home: HomeScreen(),
+
+      /// Définition des routes nommées.
+      routes: {
+        '/pectorauxDetails': (context) => PectorauxDetailScreen(), // ✅ Route ajoutée
+      },
     );
   }
 }
