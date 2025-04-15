@@ -1,43 +1,29 @@
 import 'package:flutter/material.dart';
-import 'exercise_descriptions.dart';
+import 'exercises.dart';
 
 class ExerciseDetailScreen extends StatelessWidget {
-  final String exerciseName;
-  final String imagePath;
+  final Exercise exercise;
 
-  const ExerciseDetailScreen({
-    Key? key,
-    required this.exerciseName,
-    required this.imagePath,
-  }) : super(key: key);
+  const ExerciseDetailScreen({Key? key, required this.exercise}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final String description = exerciseDescriptions[exerciseName] ??
-        "Description non disponible pour cet exercice.";
-
     return Scaffold(
-      appBar: AppBar(title: Text(exerciseName)),
-      body: SingleChildScrollView( // ✅ scroll activé ici
-        padding: const EdgeInsets.all(16.0),
+      appBar: AppBar(title: Text(exercise.name)),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(
-              child: Image.asset(
-                imagePath,
-                width: 200,
-                height: 200,
-              ),
+            Image.asset(
+              exercise.imagePath,
+              height: 200,
+              width: double.infinity,
+              fit: BoxFit.cover,
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 16),
             Text(
-              "Description de l'exercice :",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              description,
+              exercise.description,
               style: TextStyle(fontSize: 16),
             ),
           ],

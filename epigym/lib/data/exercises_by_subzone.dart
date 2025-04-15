@@ -15,7 +15,7 @@ final Map<String, List<Map<String, String>>> exercisesBySubzone = {
     {
       "name": "Dips",
       "category": "Bas des pecs",
-      "image": "assets/images/dips.png"
+      "image": "assets/exercises/Pectoraux/dips.png"
     },
     {
       "name": "Decline Bench Press",

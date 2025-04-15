@@ -32,7 +32,8 @@ class MyApp extends StatelessWidget {
 
       /// Définition des routes nommées.
       routes: {
-        '/pectorauxDetails': (context) => PectorauxDetailScreen(), // ✅ Route ajoutée
+        '/pectorauxDetails': (context) => PectorauxDetailsScreen(),
+ // ✅ Route ajoutée
       },
     );
   }
