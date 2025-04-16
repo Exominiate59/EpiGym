@@ -3,7 +3,7 @@ import 'custom_button.dart';
 import 'new_session_screen.dart';
 import 'my_routine_screen.dart';
 import 'muscle_selection_screen.dart';
-import 'calorie_input_screen.dart'; // ⬅️ Import de l’écran Calorie
+import 'screens/calorie_input_screen.dart';
 
 /// Écran principal de l'application Epigym.
 /// Permet d'accéder aux différentes fonctionnalités :
