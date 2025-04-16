@@ -59,3 +59,16 @@ flutter:
     - assets/exercises/Trapezius/rowing_machine.png
     - assets/exercises/Trapezius/shrug_haltere.png
     - assets/exercises/Trapezius/t_bar_row_supported.png
+    - assets/anatomie/trapeze/trapeze.png
+    - assets/anatomie/trapeze/haut_trapeze.png
+    - assets/anatomie/trapeze/inferieur_trapeze.png
+    - assets/anatomie/trapeze/moyen_trapeze.png
+    - assets/anatomie/triceps/longue_portion_triceps.png
+    - assets/anatomie/triceps/triceps.png
+    - assets/anatomie/triceps/vaste_externe_triceps.png
+    - assets/anatomie/triceps/vaste_interne_triceps.png
+    - assets/anatomie/epaule/arrière_epaule.png
+    - assets/anatomie/epaule/avant_epaule.png
+    - assets/anatomie/epaule/lateral_epaule.png
+    - assets/anatomie/epaule/epaule.png
+

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
-import 'screens/muscle_detail/pectoraux_details_screen.dart'; // ✅ Import corrigé
+import 'screens/muscle_detail/pectoraux_details_screen.dart'; // ✅ Déjà présent
+import 'shoulders_details_screen.dart'; // ✅ Ajout pour les épaules
 
 /// Point d'entrée de l'application **Epigym**.
 void main() {
@@ -33,8 +34,9 @@ class MyApp extends StatelessWidget {
       /// Définition des routes nommées.
       routes: {
         '/pectorauxDetails': (context) => PectorauxDetailsScreen(),
- // ✅ Route ajoutée
+        '/shouldersDetails': (context) => ShouldersDetailsScreen(), // ✅ Route ajoutée
       },
     );
   }
 }
+
