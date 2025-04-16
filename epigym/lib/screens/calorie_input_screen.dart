@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../helpers/database_helper.dart';
+import '../models/user_data.dart';
 
 class CalorieInputScreen extends StatefulWidget {
   @override
@@ -34,6 +36,8 @@ class _CalorieInputScreenState extends State<CalorieInputScreen> {
   };
 
   void calculateCalories() {
+    FocusScope.of(context).unfocus(); // <- force l'enregistrement du texte
+
     final double? weight = double.tryParse(weightController.text);
     final double? height = double.tryParse(heightController.text);
     final int? age = int.tryParse(ageController.text);
@@ -59,6 +63,72 @@ class _CalorieInputScreenState extends State<CalorieInputScreen> {
       bmr = calculatedBmr;
       finalCalories = calculatedBmr * activityFactor! + goalAdjustment!;
     });
+  }
+
+  void saveToDatabase() async {
+    if (bmr == null || finalCalories == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Veuillez d'abord calculer les calories")),
+      );
+      return;
+    }
+
+    final data = UserData(
+      gender: gender!,
+      age: int.parse(ageController.text),
+      height: double.parse(heightController.text),
+      weight: double.parse(weightController.text),
+      activityLevel: selectedActivity,
+      goal: selectedGoal,
+      bmr: bmr!,
+      finalCalories: finalCalories!,
+    );
+
+    await DatabaseHelper.instance.insertUserData(data);
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text("Données enregistrées avec succès")),
+    );
+  }
+
+  void showPreviousData() async {
+    final allData = await DatabaseHelper.instance.getAllUserData();
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text("Historique des résultats"),
+          content: SizedBox(
+            height: 200,
+            width: 300,
+            child: ListView.builder(
+              itemCount: allData.length,
+              itemBuilder: (context, index) {
+                final data = allData[index];
+                return ListTile(
+                  title: Text(
+                    "Poids: ${data.weight} kg\n"
+                        "Taille: ${data.height} cm\n"
+                        "Sexe: ${data.gender}\n"
+                        "Âge: ${data.age} ans\n"
+                        "Objectif: ${data.goal}\n"
+                        "Activité: ${data.activityLevel}\n"
+                        "Calories: ${data.finalCalories} kcal/jour",
+                  ),
+                  subtitle: Text("ID: ${data.id}"),
+                );
+              },
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: Text('Fermer'),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -137,6 +207,20 @@ class _CalorieInputScreenState extends State<CalorieInputScreen> {
               child: ElevatedButton(
                 onPressed: calculateCalories,
                 child: Text("JE CALCULE"),
+              ),
+            ),
+            const SizedBox(height: 20),
+            Center(
+              child: ElevatedButton(
+                onPressed: saveToDatabase,
+                child: Text("SAUVEGARDER"),
+              ),
+            ),
+            const SizedBox(height: 20),
+            Center(
+              child: ElevatedButton(
+                onPressed: showPreviousData,
+                child: Text("HISTORIQUE"),
               ),
             ),
             if (bmr != null && finalCalories != null) ...[
